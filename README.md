@@ -1,6 +1,4 @@
-Certainly! Here's a README file for your project:
 
----
 
 # Express MongoDB JWT Authentication with Two-Step Verification
 
