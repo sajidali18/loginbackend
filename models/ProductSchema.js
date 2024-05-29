@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const productschema = new mongoose.Schema({
     id: {
-        type: Number,
+        type: String,
         required: [true, "plz provide an id"],
         unique: true
     },
@@ -26,7 +26,20 @@ const productschema = new mongoose.Schema({
     image_link: {
         type: String,
         required: true
+    },
+    sizes: {
+        type: Object,
+    },
+    Pattern: {
+        type: String,
+    },
+    Net_Quantity: {
+        type: Number
+    },
+    CountryOforigin: {
+        type: String
     }
+
 })
 const Product = mongoose.model("Products", productschema);
 module.exports = Product;

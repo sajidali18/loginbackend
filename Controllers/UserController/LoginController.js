@@ -94,7 +94,7 @@ const Userlogin = async (req, res) => {
                 messsage: "Invalid Credentials",
             });
 
-        const pass_match = await bcrypt.compare(password, validuser.passward);
+        const pass_match = await bcrypt.compare(password, validuser.password);
 
         if (!pass_match)
             return res.status(404).json({ message: "Invalid Credentials" });
@@ -111,7 +111,8 @@ const Userlogin = async (req, res) => {
         req.session.email = email;
 
         return res.status(200).json({
-            message: "OTP Sent to your mail!!! Verify OTP to proceed"
+            message: "OTP Sent to your mail!!! Verify OTP to proceed",
+            success: true
         })
     }
     catch (err) {

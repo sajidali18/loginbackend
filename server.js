@@ -13,7 +13,10 @@ const bodyParser = require("body-parser");
 
 
 dotenv.config();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace with your client's origin
+    credentials: true
+}));
 
 
 connectdb();
@@ -23,9 +26,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Use the session middleware
+
+
 app.use(session({
-    secret: 'your_secret_key', // Change this to a secure random string
+    secret: 'hjasvxhjvas1423', // Change this to a secure random string
     resave: false,
     saveUninitialized: true,
 }));
@@ -36,7 +40,25 @@ app.use('/users', UserRoutes)
 app.get('/', (req, res) => {
     res.send("hello this side from the server side");
 })
-
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

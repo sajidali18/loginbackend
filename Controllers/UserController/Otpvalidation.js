@@ -6,6 +6,7 @@ const Otpvalidation = async (req, res) => {
         const { otp } = req.body;
         // Retrieve email from the session
         const email = req.session.email;
+        console.log(email);
         const validuser = await user.findOne({ email });
         if (!validuser)
             return res.status(404).json({
